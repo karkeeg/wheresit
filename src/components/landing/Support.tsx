@@ -1,0 +1,124 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useState } from "react";
+import type React from "react";
+
+export default function Support() {
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setIsSubmitted(true);
+      setEmail("");
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }
+  };
+
+  return (
+    <section id="support" className="py-12 md:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-blue-600 font-medium mb-2">Support</p>
+          <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-foreground text-balance">
+            Early Bird Access
+          </h2>
+        </div>
+
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ">
+          {/* Left: Image */}
+          <div className="relative w-full flex items-center justify-center py-12">
+            <div className="relative w-full max-w-[500px] h-[260px] sm:h-[350px] md:h-[450px] rounded-lg flex items-center justify-center ">
+              <div className="absolute w-[340px] sm:w-[300px] md:w-[380px] h-[380px] sm:h-[300px] md:h-[380px]">
+                <Image
+                  src="/hero-right-side-ring-bg.png"
+                  alt="hero right image"
+                  fill
+                  className="object-contain pointer-events-none"
+                />
+              </div>
+
+              <div className="relative w-[180px] h-[380px] sm:w-[180px] sm:h-[360px] md:w-[200px] md:h-[420px] overflow-hidden rounded-[40px]">
+                <video
+                  src="/video/support-left-section.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Left: Form & Text */}
+          <div className="w-full flex flex-col sm:justify-center sm:items-center md:items-start space-y-6">
+            {/* Text */}
+            <div className="space-y-3 sm:text-center md:text-left mx-4 sm:mx-0">
+              <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                Questions or early access?
+              </h3>
+              <p className="text-gray-800 text-md md:text-base">
+                Reach out to us below
+              </p>
+              <h3 className="text-sm md:text-xl font-semibold text-foreground">
+                Add your Gamil
+              </h3>
+              <p className="text-gray-800 text-md md:text-base">
+                Sign up now to be among the first to experiecnce Wheresit.
+              </p>
+            </div>
+
+            {/* Email Form */}
+            <form
+              onSubmit={handleSubmit}
+              className="w-full max-w-md flex flex-col gap-4 items-center"
+            >
+              <div className="flex gap-4 flex-col w-full px-4">
+                {/* Input */}
+                <div className="relative w-full max-w-sm">
+                  <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <Image
+                      src="/icons/mail.svg"
+                      alt="mail"
+                      width={20}
+                      height={20}
+                    />
+                  </span>
+
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full pl-10 pr-3 py-3 border border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {/* Button */}
+                <Button
+                  type="submit"
+                  className="w-full max-w-sm py-4 h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg"
+                >
+                  {isSubmitted ? "Submitted!" : "Submit"}
+                </Button>
+              </div>
+
+              {isSubmitted && (
+                <p className="text-sm text-green-600 font-medium mt-2 text-center">
+                  Thank you for signing up!
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
