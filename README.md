@@ -14,8 +14,8 @@ WhereSit is a Next.js app built with modern tooling and reusable UI components t
 
 ### **Frameworks & Core**
 
-* Next.js 14 (App Router)
-* React
+* Next.js 14.2.22 (App Router)
+* React 18.3.1
 * TypeScript
 
 ### **Styling & Components**
