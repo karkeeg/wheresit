@@ -8,13 +8,38 @@ import type React from "react";
 export default function Support() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      setEmail("");
-      setTimeout(() => setIsSubmitted(false), 3000);
+    if (!email) return;
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setEmail("");
+        // Reset submitted status after 3 seconds
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        setError(data.error || "Failed to send email. Please try again later.");
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -81,7 +106,7 @@ export default function Support() {
             >
               <div className="flex gap-4 flex-col w-full px-4">
                 {/* Input */}
-                <div className="relative w-full max-w-sm">
+                <div className="relative w-full max-w-sm self-center md:self-start">
                   <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                     <Image
                       src="/icons/mail.svg"
@@ -97,22 +122,30 @@ export default function Support() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full pl-10 pr-3 py-3 border border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    disabled={isLoading}
+                    className="w-full pl-10 pr-3 py-3 border border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                   />
                 </div>
 
                 {/* Button */}
                 <Button
                   type="submit"
-                  className="w-full max-w-sm py-4 h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg"
+                  disabled={isLoading}
+                  className="w-full max-w-sm py-4 h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg disabled:opacity-70"
                 >
-                  {isSubmitted ? "Submitted!" : "Submit"}
+                  {isLoading ? "Sending..." : isSubmitted ? "Submitted!" : "Submit"}
                 </Button>
               </div>
 
               {isSubmitted && (
                 <p className="text-sm text-green-600 font-medium mt-2 text-center">
                   Thank you for signing up!
+                </p>
+              )}
+
+              {error && (
+                <p className="text-sm text-red-600 font-medium mt-2 text-center">
+                  {error}
                 </p>
               )}
             </form>
