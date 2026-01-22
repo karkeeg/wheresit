@@ -8,86 +8,100 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
+    { name: "Home", href: "#home" },
     { name: "Features", href: "#features" },
     { name: "Walkthrough", href: "#walkthrough" },
   ];
+
   const navItems2 = [
+    { name: "Group Sharing", href: "#groupsharing" },
     { name: "Support", href: "#support" },
     { name: "Usecase", href: "#usecase" },
   ];
+
   const navItemsMo = [...navItems, ...navItems2];
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-10">
+    <header className="sticky top-0 z-50 bg-[#F4F9FF]/95 backdrop-blur-sm opacity-95 border-b border-border">
+      <nav
+        className="
+          h-20 flex items-center justify-between
+          px-4 sm:px-8 lg:px-[110px]
+        "
+      >
+        {/* Mobile Menu Button - Left (Invisible on desktop for balance) */}
+        <div className="md:hidden flex-1">
+          <button onClick={() => setIsOpen(!isOpen)} className="p-2 -ml-2">
+            {isOpen ? (
+              <X size={28} className="text-red-500" />
+            ) : (
+              <Menu size={28} className="text-primary" />
+            )}
+          </button>
+        </div>
+
+        {/* Left Navigation - Desktop */}
+        <div className="hidden md:flex gap-[32px] flex-1">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-sm hover:bg-blue-700 hover:text-white font-semibold px-3 py-1.5 rounded-xl transition-color"
+              className="text-md font-semibold text-black hover:text-blue-700 transition-colors"
             >
               {item.name}
             </a>
           ))}
         </div>
-        {/* Logo */}
-        <a key={"home"} href={"#home"} className="flex items-center gap-2">
-          <div className="shrink-0 inline-block">
-            <div className=" rounded-full shadow shadow-amber-200 ">
-              <Image
-                src={"/logo-gif.gif"}
-                unoptimized
-                alt="logo"
-                height={100}
-                width={100}
-                className="h-[50px] w-[50px] object-cover rounded-full bg-blue-400 transpar"
-              />
-            </div>
-          </div>
 
-          <div className="text-3xl font-bold">
-            Where<span className="text-blue-700">Sit</span>
-          </div>
-        </a>
+        {/* Center Logo */}
+        <div className="flex items-center justify-center">
+          <a href="#home" className="flex items-center gap-2 shrink-0">
+            <Image
+              src="/icons/Layer_1.svg"
+              alt="logo"
+              width={40}
+              height={40}
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+            />
+            <span className="text-2xl sm:text-3xl font-bold text-[#333333]">
+              Where<span className="text-[#1566E6]">Sit</span>
+            </span>
+          </a>
+        </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Right Navigation - Desktop */}
+        <div className="hidden md:flex gap-[32px] justify-end flex-1">
           {navItems2.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-sm hover:bg-blue-700 hover:text-white font-semibold px-3 py-1.5 rounded-xl transition-color"
+              className="text-md font-semibold text-black hover:text-blue-700 transition-colors"
             >
               {item.name}
             </a>
           ))}
         </div>
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-foreground cursor-pointer"
-          >
-            {isOpen ? (
-              <X size={24} color="red" />
-            ) : (
-              <Menu size={24} color="blue" />
-            )}
-          </button>
-        </div>
+
+        {/* Spacer for mobile to center logo */}
+        <div className="md:hidden flex-1" />
       </nav>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b ">
+        <div className="md:hidden bg-white border-b">
           <div className="px-4 py-4 space-y-4">
             {navItemsMo.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-md font-semibold text-center  text-gray-900 border border-gray-300 rounded-md ounded-md px-2 py-4 hover:bg-blue-500 hover:text-white transition-colors"
-                onClick={() => setIsOpen(false)} // close menu on click
+                className="
+                  block text-md font-semibold text-center
+                  text-gray-900 border border-gray-300
+                  rounded-md px-2 py-4
+                  hover:bg-blue-500 hover:text-white
+                  transition-colors
+                "
+                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>

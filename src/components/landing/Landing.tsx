@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import Support from "./Support";
 import Usecase from "./Usecase";
 import WalkthroughSection from "./Walkthrough";
-
+import GroupSharing from "./GroupSharing";
 
 
 export default function Landing() {
@@ -12,8 +12,9 @@ export default function Landing() {
       <Hero />
       <Feature />
       <WalkthroughSection />
-      <Support />
+      <GroupSharing />
       <Usecase />
+      <Support />
     </>
   );
 }

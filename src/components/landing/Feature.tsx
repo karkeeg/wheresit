@@ -92,78 +92,107 @@ import { Mic, Sparkles, Users } from "lucide-react";
 
 interface FeatureItem {
   icon: React.ReactNode;
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
 }
 
 const features: FeatureItem[] = [
   {
-    icon: <Mic className="h-5 w-5 text-white" />,
+    icon: <Mic className="h-6 w-6 text-white" />,
     title: "Voice Commands",
-    description:
-      "Simply record and manage tasks with your voice with the help of AI.",
+    description: (
+      <>
+        Simply record and manage tasks with your voice with the help of{" "}
+        <span className="text-primary group-hover:text-white font-medium">
+          WhereSit
+        </span>
+      </>
+    ),
   },
   {
-    icon: <Sparkles className="h-5 w-5 text-white" />,
-    title: "Smart AI",
-    description:
-      "Automatically categorize and tag your notes for easy retrieval.",
+    icon: (
+      <div className="relative">
+        <Mic className="h-6 w-6 text-white" />
+        <div className="absolute -top-1 -right-1 bg-white rounded-sm p-0.5">
+          <svg
+            width="8"
+            height="8"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+      </div>
+    ),
+    title: "Safe & Secure",
+    description: "Privacy-focused by design, secure by default.",
   },
   {
-    icon: <Users className="h-5 w-5 text-white" />,
-    title: "Group Sharing",
-    description:
-      "Effortlessly share notes and to-do lists with friends and family.",
+    icon: <Sparkles className="h-6 w-6 text-white" />,
+    title: (
+      <>
+        Smart{" "}
+        <span className="text-primary group-hover:text-white"> WhereSit</span>
+      </>
+    ),
+    description: "Automatically categorize and tag notes for easy retrival",
   },
   {
-    icon: <Sparkles className="h-5 w-5 text-white" />,
+    icon: <Sparkles className="h-6 w-6 text-white" />,
     title: "Smart Reminders",
-    description: "Get timely reminders exactly when you need them.",
+    description: "Get timely reminders exactly when you need them",
   },
   {
-    icon: <Sparkles className="h-5 w-5 text-white" />,
+    icon: <Sparkles className="h-6 w-6 text-white" />,
     title: "Cloud Sync",
     description:
-      "Keep your notes and reminders synced across all your devices.",
+      "Keep your notes and remainders synced across all your devices.",
   },
   {
-    icon: <Users className="h-5 w-5 text-white" />,
+    icon: <Users className="h-6 w-6 text-white" />,
     title: "Multi-Platform",
-    description: "Access your notes on any device, anywhere anytime.",
+    description: "Access your notes on any device, anywhere, anytime.",
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="py-12 md:py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="features"
+      className="lg:min-h-screen flex items-center py-12 md:py-16 bg-white overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm font-semibold text-primary mb-2">Feature</p>
-          <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold  mb-4 text-foreground">
+        <div className="text-center mb-10 md:mb-12">
+          <p className="text-xl font-semibold text-primary mb-3 tracking-wide">
+            Feature
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-[#1a1a1a]">
             Everything you need to know
           </h2>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 md:gap-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 sm:p-8 rounded-2xl transition duration-300  hover:bg-blue-900 hover:text-white"
+              className="group p-2 lg:p-4 bg-[#f9fafb]/50 hover:bg-[#001e4d] rounded-3xl transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-xl"
             >
-              {/* Icon */}
-              <div className="flex items-center justify-center w-14 h-14 sm:w-20 sm:h-20 bg-primary/70 rounded-full mb-4 ">
+              <div className="flex items-center justify-center w-12 h-12 bg-[#3b82f6] rounded-full mb-4 shadow-sm">
                 {feature.icon}
               </div>
-
-              {/* Title */}
-              <h3 className="text-md sm:text-xl font-semibold mb-2 ">
+              <h3 className="text-xl font-bold text-[#1a1a1a] group-hover:text-white mb-2s transition-colors duration-300">
                 {feature.title}
               </h3>
-
-              {/* Description */}
-              <p className="text-md sm:text-base text-[#222222] hover:text-white  leading-relaxed">
+              <p className="text-gray-600 group-hover:text-white text-sm leading-relaxed max-w-[260px] transition-colors duration-300">
                 {feature.description}
               </p>
             </div>

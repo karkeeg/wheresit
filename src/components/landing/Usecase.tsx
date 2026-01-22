@@ -1,96 +1,211 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+
+const useCases = [
+  {
+    title: 'Misplaced your "Project File"?',
+    description:
+      "Worried about deadline? Don't stress—\nwe've got you covered!",
+    command: "Voice command",
+    steps: [
+      {
+        text: 'Tap the mic or say "Hey WhereSit" to start',
+        highlight: "Hey WhereSit",
+      },
+      {
+        text: "Speak naturally, Where is my project file named important.",
+      },
+      {
+        text: "The WhereSit instantly search and find your lost things",
+        highlight: "WhereSit",
+      },
+    ],
+    footer: "You will never lose your files again.",
+    image: "/images/usecase/usecase1.png",
+  },
+  {
+    title: "Misplaced your Capo?",
+    description:
+      "Worried about losing your Capo? Don't stress—\nwe've got you covered!",
+    command: "Voice command",
+    steps: [
+      {
+        text: 'Tap the mic or say "Hey WhereSit" to start',
+        highlight: "Hey WhereSit",
+      },
+      {
+        text: "Speak naturally, Where is my Capo",
+      },
+      {
+        text: "The WhereSit instantly search and find your lost things",
+        highlight: "WhereSit",
+      },
+    ],
+    footer: "Don't lose your rhythm anymore",
+    image: "/images/usecase/usecase2.svg",
+  },
+  {
+    title: "Misplaced your Groceries?",
+    description: "Worried about losing your groceries or everyday items",
+    command: "Voice command",
+    steps: [
+      {
+        text: 'Tap the mic or say "Hey WhereSit" to start',
+        highlight: "Hey WhereSit",
+      },
+      {
+        text: "Speak naturally, Where is my Dal and Rice",
+      },
+      {
+        text: "The WhereSit instantly search and find your lost things",
+        highlight: "WhereSit",
+      },
+    ],
+    footer: "No more shouting across rooms",
+    image: "/images/usecase/usecase3.svg",
+  },
+  {
+    title: "Misplaced your ID Card?",
+    description:
+      "Worried about losing your ID Card? Don't Worry- We got you covered.",
+    command: "Voice command",
+    steps: [
+      {
+        text: 'Tap the mic or say "Hey WhereSit" to start',
+        highlight: "Hey WhereSit",
+      },
+      {
+        text: 'Speak naturally, "Where did I stored my ID card?"',
+      },
+      {
+        text: "The WhereSit instantly search and find your lost things",
+        highlight: "WhereSit",
+      },
+    ],
+    footer: "Don't stress. Just ask WhereSit.",
+    image: "/images/usecase/usecase4.svg",
+  },
+];
 
 export default function Usecase() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % useCases.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
+  };
+
+  const slide = useCases[currentSlide];
+
   return (
-    <section id="usecase" className="py-16 md:py-8 bg-[#E2ECFF]">
-      <div className="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 mt-4 ">
+    <section
+      id="usecase"
+      className="lg:min-h-screen flex items-center py-8 bg-[#EBF3FF] overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-primary mb-2">Usecase</p>
-          <h2 className="text-4xl md:text-4xl font-bold text-balance">
-            When it Matters Most
+        <div className="text-center mb-8">
+          <p className="text-xl font-semibold text-primary mb-4">Usecase</p>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#1a1a1a]">
+            WhereSit Matters Most
           </h2>
         </div>
 
-        {/* --- Usecase #1 --- */}
-        <div className="sm:grid md:grid-cols-2 ps-3 flex grid-cols-2 gap-8 items-center">
-          {/* Content */}
-          <div className="space-y-4 w-[70%]">
-            <h3 className="text-2xl font-bold text-foreground">
-              Misplaced your Citizenship?
-            </h3>
+        <div className="relative flex items-center justify-between">
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="hidden md:flex items-center justify-center p-2 rounded-full hover:bg-white/50 transition-all active:scale-95"
+          >
+            <ChevronLeft className="h-8 w-8 text-[#1a1a1a]" />
+          </button>
 
-            <p className="text- text-black leading-relaxed">
-              Worried about your assets from misleading? Or get confused in a
-              world of data?
-            </p>
-            <h3 className="text-md">
-              Use <span className="font-semibold">Voice command</span> input
-            </h3>
-            <ul className="">
-              <li className="flex gap-3 ">
-                <span className="text-primary font-bold">•</span>
-                <span className="text-sm text-black" >
-                  Tap the mic or say
-                  <span className="text-blue-600">*Hey WHERESIT*</span> to start
-                </span>
-              </li>
-              <li className="flex gap-3 text-text-black">
-                <span className="text-text-black font-bold">•</span>
-                <span className="text-sm text-black">
-                  Speak naturally, find my Citizenship card
-                </span>
-              </li>
-              <li className="flex gap-3 text-black">
-                <span className="text-black font-bold">•</span>
-                <span className="text-sm text-black">
-                  The AI instantly searches and finds your lost things
-                </span>
-              </li>
-            </ul>
-          </div>
+          {/* Content Wrapper */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 flex-1 max-w-5xl mx-auto px-4 md:px-0">
+            {/* Content Left */}
+            <div className="flex-1 space-y-6 animate-in fade-in slide-in-from-left duration-500">
+              <div className="space-y-3">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]">
+                  {slide.title}
+                </h3>
+                <p className="text-lg text-gray-700 leading-relaxed font-medium whitespace-pre-line">
+                  {slide.description}
+                </p>
+              </div>
 
-          {/* Image */}
-          <div className="flex justify-center relative">
-            <div className="w-30 h-30 sm:w-full sm:h-full flex items-center justify-center text-6xl">
-              <Image
-                src="/usecase-right.svg"
-                alt="Misplaced"
-                width={320}
-                height={320}
-              />
+              <div className="space-y-4">
+                <p className="text-lg font-medium text-[#1a1a1a]">
+                  Use <span className="font-bold">{slide.command}</span> input
+                </p>
+                <ul className="space-y-3">
+                  {slide.steps.map((step, idx) => (
+                    <li key={idx} className="flex items-start gap-4">
+                      <span className="text-[#1a1a1a] font-bold mt-1">•</span>
+                      <span className="text-base text-[#1a1a1a]">
+                        {step.highlight ? (
+                          <>
+                            {step.text.split(step.highlight)[0]}
+                            <span className="text-blue-600 font-medium">
+                              {step.highlight}
+                            </span>
+                            {step.text.split(step.highlight)[1]}
+                          </>
+                        ) : (
+                          step.text
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className="text-lg font-medium text-[#1a1a1a] pt-2">
+                {slide.footer}
+              </p>
             </div>
-            <div className="absolute inset-0 -z-10 rounded-full bg-primary/10 blur-2xl" />
+
+            {/* Mobile Mockup Right */}
+            <div className="flex-1 relative max-w-[280px] w-full animate-in fade-in slide-in-from-right duration-500">
+              <div className="relative">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  width={260}
+                  height={400}
+                  className="w-full h-auto object-contain max-h-[320px] lg:max-h-[420px]"
+                  priority
+                />
+              </div>
+              {/* Subtle aura effect around phone */}
+              <div className="absolute inset-x-0 bottom-0 top-1/2 -z-10 bg-blue-400/20 blur-[100px] rounded-full" />
+            </div>
           </div>
+
+          <button
+            onClick={nextSlide}
+            className="hidden md:flex items-center justify-center p-2 rounded-full hover:bg-white/50 transition-all active:scale-95"
+          >
+            <ChevronRight className="h-8 w-8 text-[#1a1a1a]" />
+          </button>
         </div>
 
-        {/* --- Usecase #2 --- */}
-        <div className="flex md:grid md:grid-cols-2 gap-8 items-center mt-10">
-          {/* Image */}
-          <div className="flex justify-center relative">
-            <div className="w-30 h-30 sm:w-full sm:h-full flex items-center justify-center text-6xl">
-              <Image
-                src="/left-usercase.svg"
-                alt="Found it"
-                width={320}
-                height={320}
-              />
-            </div>
-            <div className="absolute inset-0 -z-10 rounded-full bg-primary/10 blur-2xl" />
-          </div>
-
-          {/* Content */}
-          <div className="space-y-4 mt-14">
-            <h3 className="text-2xl font-bold text-foreground">
-              Congratulation! Found it
-            </h3>
-
-            <p className="text-md text-black  leading-relaxed">
-              <span className="text-blue-600">Wheresit</span> knows where it is.
-            </p>
-          </div>
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-4">
+          {useCases.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 w-2 rounded-full transition-all ${
+                currentSlide === idx ? "bg-primary w-6" : "bg-gray-300"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

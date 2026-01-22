@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     }
 
     await transporter.sendMail({
-      from: `Wheresit Notification <${process.env.SMTP_USER}>`,
+      from: `WhereSit Notification <${process.env.SMTP_USER}>`,
       to: process.env.MAIL_SEND_TO,
       subject: "New Early Access Request",
       html: getUserEmailHtml(email),
@@ -20,6 +20,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Email sending failed:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to send email" },
+      { status: 500 },
+    );
   }
 }

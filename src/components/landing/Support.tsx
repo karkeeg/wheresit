@@ -44,12 +44,12 @@ export default function Support() {
   };
 
   return (
-    <section id="support" className="py-12 md:py-16 bg-white">
+    <section id="support" className="py-8 md:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-blue-600 font-medium mb-2">Support</p>
-          <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-foreground text-balance">
+        <div className="text-center mb-2 md:mb-4">
+          <p className="text-xl font-semibold text-primary mb-2">Support</p>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-[#1a1a1a]">
             Early Bird Access
           </h2>
         </div>
@@ -57,7 +57,7 @@ export default function Support() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ">
           {/* Left: Image */}
-          <div className="relative w-full flex items-center justify-center py-12">
+          <div className="relative w-full flex items-center justify-center py-8">
             <div className="relative w-full max-w-[500px] h-[260px] sm:h-[350px] md:h-[450px] rounded-lg flex items-center justify-center ">
               <div className="absolute w-[340px] sm:w-[300px] md:w-[380px] h-[380px] sm:h-[300px] md:h-[380px]">
                 <Image
@@ -68,7 +68,7 @@ export default function Support() {
                 />
               </div>
 
-              <div className="relative w-[180px] h-[380px] sm:w-[180px] sm:h-[360px] md:w-[200px] md:h-[420px] overflow-hidden rounded-[40px]">
+              <div className="relative w-[170px] h-[360px] sm:w-[180px] sm:h-[360px] md:w-[180px] md:h-[380px] overflow-hidden rounded-[40px]">
                 <video
                   src="/video/support-left-section.mp4"
                   autoPlay
@@ -95,7 +95,7 @@ export default function Support() {
                 Add your Gamil
               </h3>
               <p className="text-gray-800 text-md md:text-base">
-                Sign up now to be among the first to experiecnce Wheresit.
+                Sign up now to be among the first to experiecnce WhereSit.
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export default function Support() {
               onSubmit={handleSubmit}
               className="w-full max-w-md flex flex-col gap-4 items-center"
             >
-              <div className="flex gap-4 flex-col w-full px-4">
+              <div className="flex gap-4 flex-col w-full">
                 {/* Input */}
                 <div className="relative w-full max-w-sm self-center md:self-start">
                   <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
@@ -133,7 +133,11 @@ export default function Support() {
                   disabled={isLoading}
                   className="w-full max-w-sm py-4 h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg disabled:opacity-70"
                 >
-                  {isLoading ? "Sending..." : isSubmitted ? "Submitted!" : "Submit"}
+                  {isLoading
+                    ? "Sending..."
+                    : isSubmitted
+                      ? "Submitted!"
+                      : "Submit"}
                 </Button>
               </div>
 

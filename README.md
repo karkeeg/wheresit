@@ -10,31 +10,31 @@ WhereSit is a Next.js app built with modern tooling and reusable UI components t
 
 ---
 
-#  Tech Stack
+# Tech Stack
 
 ### **Frameworks & Core**
 
-* Next.js 14.2.22 (App Router)
-* React 18.3.1
-* TypeScript
+- Next.js 14.2.22 (App Router)
+- React 18.3.1
+- TypeScript
 
 ### **Styling & Components**
 
-* TailwindCSS
-* shadcn/ui components
+- TailwindCSS
+- shadcn/ui components
 
 ### **Bundling & Tooling**
 
-* pnpm
-* PostCSS
-* ESLint + Prettier
+- pnpm
+- PostCSS
+- ESLint + Prettier
 
 ---
 
 # 📁 Project Folder Structure
 
 ```
-wheresit
+WhereSit
 ├── .git                # Version control
 ├── .next               # Build output (ignore)
 ├── node_modules        # Dependencies
@@ -65,26 +65,26 @@ wheresit
 
 ---
 
-#  Important Folders Explained
+# Important Folders Explained
 
 ## **src/app/**
 
 This contains the App Router entry and global styles.
 
-* `page.tsx` ⇒ main homepage.
-* `layout.tsx` ⇒ shared layout for the entire app.
-* `globals.css` ⇒ Tailwind & global styles.
+- `page.tsx` ⇒ main homepage.
+- `layout.tsx` ⇒ shared layout for the entire app.
+- `globals.css` ⇒ Tailwind & global styles.
 
 ## **src/components/landing/**
 
 All sections of the landing page are separate components for readability and reusability:
 
-* Hero
-* Feature
-* Support
-* Walkthrough
-* Landing
-* Usecase
+- Hero
+- Feature
+- Support
+- Walkthrough
+- Landing
+- Usecase
 
 Each can be edited or replaced independently.
 
@@ -92,20 +92,20 @@ Each can be edited or replaced independently.
 
 Common shared layout components:
 
-* Header
-* Footer
+- Header
+- Footer
 
 ## **public/**
 
 All images, icons, video.
 
-* Example: `/hero-right-side-ring.gif`
+- Example: `/hero-right-side-ring.gif`
 
->  Rule: Never store assets inside components. Keep them in `public/`.
+> Rule: Never store assets inside components. Keep them in `public/`.
 
 ---
 
-#  How to Run Project
+# How to Run Project
 
 ```
 pnpm install
@@ -124,7 +124,5 @@ Project runs at:
 ```
 http://localhost:3000
 ```
-
-
 
 # End of Documentation

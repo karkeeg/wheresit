@@ -64,8 +64,9 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["Manrope", "var(--font-roboto)", "sans-serif"],
         mono: ["var(--font-roboto-mono)"],
+        secondary: ["var(--font-roboto)", "sans-serif"],
       },
     },
   },

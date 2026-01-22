@@ -17,8 +17,7 @@ export default function Footer() {
             >
               <div className="rounded-full shadow shadow-amber-200 flex items-center justify-center">
                 <Image
-                  src={"/logo-gif.gif"}
-                  unoptimized
+                  src={"/icons/Layer_1.svg"}
                   alt="logo"
                   height={100}
                   width={100}
@@ -93,8 +92,8 @@ export default function Footer() {
                 {[
                   {
                     icon: "/icons/mail.svg",
-                    label: "wheresit.app@gmail.com",
-                    href: "mailto:wheresit.app@gmail.com",
+                    label: "WhereSit.app@gmail.com",
+                    href: "mailto:WhereSit.app@gmail.com",
                   },
                   { icon: "/icons/x.svg", label: "X / Twitter", href: "#" },
                   { icon: "/icons/linkedin.svg", label: "LinkedIn", href: "#" },
