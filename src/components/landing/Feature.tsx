@@ -166,11 +166,11 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="lg:min-h-screen flex items-center py-12 md:py-16 bg-white overflow-hidden"
+      className="lg:min-h-screen flex py-16 md:py-16 bg-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 mb-12 w-full">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-2 lg:mb-4">
           <p className="text-xl font-semibold text-primary mb-3 tracking-wide">
             Feature
           </p>
@@ -180,19 +180,19 @@ export default function Features() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group p-2 lg:p-4 bg-[#f9fafb]/50 hover:bg-[#001e4d] rounded-3xl transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-xl"
+              className="group p-4 lg:p-6 bg-[#f9fafb]/50 hover:bg-[#001e4d] rounded-3xl transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-xl max-h-[240px] lg:min-h-[300px] justify-center"
             >
-              <div className="flex items-center justify-center w-12 h-12 bg-[#3b82f6] rounded-full mb-4 shadow-sm">
+              <div className="flex items-center justify-center w-14 h-14 bg-[#3b82f6] rounded-full mb-6 shadow-sm">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#1a1a1a] group-hover:text-white mb-2s transition-colors duration-300">
+              <h3 className="text-2xl lg:text-3xl font-bold text-[#1a1a1a] group-hover:text-white mb-3 transition-colors duration-300">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 group-hover:text-white text-sm leading-relaxed max-w-[260px] transition-colors duration-300">
+              <p className="text-gray-600 group-hover:text-white text-base lg:text-lg leading-relaxed max-w-[280px] lg:max-w-[300px] transition-colors duration-300">
                 {feature.description}
               </p>
             </div>

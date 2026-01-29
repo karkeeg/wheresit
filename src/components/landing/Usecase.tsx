@@ -106,48 +106,49 @@ export default function Usecase() {
   return (
     <section
       id="usecase"
-      className="lg:min-h-screen flex items-center py-8 bg-[#EBF3FF] overflow-hidden"
+      className="lg:min-h-screen flex py-12 lg:py-20 bg-[#EBF3FF] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8  w-full">
         {/* Section Header */}
-        <div className="text-center mb-8">
-          <p className="text-xl font-semibold text-primary mb-4">Usecase</p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#1a1a1a]">
+        <div className="text-center mb-8 lg:mb-12">
+          <p className="text-xl lg:text-2xl font-semibold text-primary mb-4">
+            Usecase
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1a1a1a]">
             WhereSit Matters Most
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-between">
+        <div className="relative flex mt-12 lg:mt-28 justify-between">
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="hidden md:flex items-center justify-center p-2 rounded-full hover:bg-white/50 transition-all active:scale-95"
+            className="hidden md:flex items-center justify-center p-4 rounded-full hover:bg-white/50 transition-all active:scale-95"
           >
-            <ChevronLeft className="h-8 w-8 text-[#1a1a1a]" />
+            <ChevronLeft className="h-10 w-10 text-[#1a1a1a]" />
           </button>
-
           {/* Content Wrapper */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 flex-1 max-w-5xl mx-auto px-4 md:px-0">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 flex-1 w-full mx-auto px-4 md:px-0">
             {/* Content Left */}
-            <div className="flex-1 space-y-6 animate-in fade-in slide-in-from-left duration-500">
-              <div className="space-y-3">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]">
+            <div className="flex-1 space-y-8 animate-in fade-in slide-in-from-left duration-500">
+              <div className="space-y-4">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a1a]">
                   {slide.title}
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed font-medium whitespace-pre-line">
+                <p className="text-2xl lg:text-3xl text-gray-700 leading-relaxed font-medium whitespace-pre-line">
                   {slide.description}
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <p className="text-lg font-medium text-[#1a1a1a]">
+              <div className="space-y-6">
+                <p className="text-2xl font-medium text-[#1a1a1a]">
                   Use <span className="font-bold">{slide.command}</span> input
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {slide.steps.map((step, idx) => (
                     <li key={idx} className="flex items-start gap-4">
-                      <span className="text-[#1a1a1a] font-bold mt-1">•</span>
-                      <span className="text-base text-[#1a1a1a]">
+                      <span className="text-[#1a1a1a] font-bold mt-1.5">•</span>
+                      <span className="text-xl lg:text-2xl text-[#1a1a1a]">
                         {step.highlight ? (
                           <>
                             {step.text.split(step.highlight)[0]}
@@ -165,20 +166,20 @@ export default function Usecase() {
                 </ul>
               </div>
 
-              <p className="text-lg font-medium text-[#1a1a1a] pt-2">
+              <p className="text-2xl font-medium text-[#1a1a1a] pt-4">
                 {slide.footer}
               </p>
             </div>
 
             {/* Mobile Mockup Right */}
-            <div className="flex-1 relative max-w-[280px] w-full animate-in fade-in slide-in-from-right duration-500">
+            <div className="flex-1 relative max-w-[350px] lg:max-w-[450px] w-full animate-in fade-in slide-in-from-right duration-500">
               <div className="relative">
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  width={260}
-                  height={400}
-                  className="w-full h-auto object-contain max-h-[320px] lg:max-h-[420px]"
+                  width={400}
+                  height={600}
+                  className="w-full h-auto object-contain max-h-[500px] lg:max-h-[600px]"
                   priority
                 />
               </div>
@@ -186,23 +187,22 @@ export default function Usecase() {
               <div className="absolute inset-x-0 bottom-0 top-1/2 -z-10 bg-blue-400/20 blur-[100px] rounded-full" />
             </div>
           </div>
-
           <button
             onClick={nextSlide}
             className="hidden md:flex items-center justify-center p-2 rounded-full hover:bg-white/50 transition-all active:scale-95"
           >
-            <ChevronRight className="h-8 w-8 text-[#1a1a1a]" />
+            <ChevronRight className="h-10 w-10 text-[#1a1a1a]" />
           </button>
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-3 mt-8">
           {useCases.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-2 w-2 rounded-full transition-all ${
-                currentSlide === idx ? "bg-primary w-6" : "bg-gray-300"
+              className={`h-3 w-3 rounded-full transition-all ${
+                currentSlide === idx ? "bg-primary w-8" : "bg-gray-300"
               }`}
             />
           ))}

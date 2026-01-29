@@ -9,76 +9,97 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative bg-[#EBF3FF] py-6 md:py-[20px] px-6 sm:px-12 lg:px-[120px] overflow-hidden"
+      className="relative bg-[#EBF3FF]  overflow-hidden
+        py-10 md:py-16 lg:min-h-screen
+        px-6 sm:px-12 lg:px-[120px]"
     >
-      <div className="max-w-[1200px] min-h-[450px] md:min-h-[508px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-[165px]">
-        {/* Left Content */}
-        <div className="w-full lg:max-w-md space-y-8 text-center lg:text-left">
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.2] tracking-tight">
+      <div
+        className="max-w-[1200px] mx-auto
+        flex flex-col lg:flex-row
+        items-center justify-between
+        gap-14 lg:gap-24"
+      >
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="w-full lg:max-w-md space-y-10 text-center lg:text-left">
+          {/* Heading */}
+          <div className="space-y-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
               <span className="text-primary">WhereSit</span>{" "}
-              <span className="text-[#333333]">Know</span>
-              <br className="hidden lg:block" />{" "}
-              <span className="text-[#333333]">where</span>{" "}
+              <span className="text-[#555] font-semibold">Know</span>
+              <br className="hidden lg:block" />
+              <span className="text-[#333]">where</span>{" "}
               <span className="text-primary">it is</span>
             </h1>
-            <p className="text-base sm:text-lg text-[#444444] leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
-              <span className="text-primary font-bold">WhereSit</span> powered
-              notes and reminders app that understands your voice and helps you
-              collaborate with groups effortlessly.
+
+            <p className="text-base sm:text-lg text-[#555] leading-relaxed max-w-md mx-auto lg:mx-0">
+              <span className="text-primary font-semibold">WhereSit</span>{" "}
+              powered notes and reminders app that understands your voice and
+              helps you collaborate effortlessly.
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center justify-center lg:justify-start">
             <Link href="#getstarted" className="w-full sm:w-auto">
-              <Button className="bg-primary w-full sm:w-auto h-12 px-8 rounded-xl hover:bg-primary/90 text-white font-bold text-base shadow-lg shadow-blue-200">
+              <Button
+                className="bg-primary w-full sm:w-auto h-12 px-8 rounded-xl
+                text-white font-bold text-base
+                shadow-lg shadow-blue-200
+                transition-all hover:bg-primary/90 hover:scale-[1.03]"
+              >
                 Get Started
               </Button>
             </Link>
-            <div className="flex justify-center items-center w-full sm:w-auto">
-              <Button
-                variant="outline"
-                className="border-2 w-full sm:w-auto h-12 px-6 rounded-xl border-primary text-primary hover:bg-primary/5 bg-white flex items-center gap-2 justify-center font-bold text-base"
-              >
-                <div className="border-2 border-primary rounded-full p-1 flex items-center justify-center">
-                  <Play
-                    size={16}
-                    fill="currentColor"
-                    className="text-primary ml-0.5"
-                  />
-                </div>
-                Watch Demo
-              </Button>
-            </div>
+
+            <Button
+              variant="outline"
+              className="border-primary text-primary bg-white
+              w-full sm:w-auto h-12 px-6 rounded-xl
+              flex items-center gap-2 font-semibold
+              hover:bg-primary/5 transition"
+            >
+              <Play size={16} />
+              Watch Demo
+            </Button>
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="relative w-full max-w-[500px] aspect-square md:aspect-auto h-[350px] sm:h-[400px] lg:h-[558px] flex justify-center items-center">
-          {/* Aura/Ring Background */}
-          <div className="absolute inset-0 scale-100 opacity-70">
+        {/* ================= RIGHT VISUAL ================= */}
+        <div
+          className="relative w-full max-w-[520px]
+          h-[360px] sm:h-[420px] lg:h-[560px]
+          flex items-center justify-center"
+        >
+          {/* Background Ring */}
+          <div className="absolute inset-0 opacity-50 blur-[1px]">
             <Image
               src="/hero-right-side-ring-bg.png"
               alt="background ring"
               fill
               className="object-contain"
+              priority
             />
           </div>
 
-          {/* Animated Ring GIF */}
-          <div className="absolute w-[80%] h-[80%] z-0">
+          {/* Animated Aura */}
+          <div className="absolute w-[72%] h-[72%] z-0">
             <Image
               src="/hero-right-side-ring.gif"
-              unoptimized
               alt="animated aura"
               fill
+              unoptimized
               className="object-contain"
             />
           </div>
 
-          {/* Content Video (Inside the phone)*/}
-          <div className="relative w-[51%] h-[80%] mx-auto z-10 -mt-2 overflow-hidden rounded-[1.5rem] md:rounded-[2rem]">
+          {/* Phone / Video */}
+          <div
+            className="relative z-10
+            w-[43%] h-[80%]
+            rounded-[2rem] overflow-hidden
+            border border-black/10
+            shadow-2xl"
+          >
             <video
               src="/video/Video Project.mp4"
               autoPlay
@@ -90,6 +111,19 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Floating animation */}
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
     </section>
   );
 }
