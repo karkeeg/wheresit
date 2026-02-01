@@ -63,7 +63,7 @@ export default function Header() {
               height={40}
               className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
             />
-            <span className="text-2xl sm:text-3xl font-bold text-[#333333]">
+            <span className="text-2xl font-bold text-[#333333]">
               Where<span className="text-[#1566E6]">Sit</span>
             </span>
           </a>

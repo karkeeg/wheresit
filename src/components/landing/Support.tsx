@@ -55,7 +55,7 @@ export default function Support() {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ">
+        <div className="grid grid-cols-1 mt-8 md:grid-cols-2 gap-8 md:gap-12 items-center ">
           {/* Left: Image */}
           <div className="relative w-full flex items-center justify-center py-8">
             <div className="relative w-full max-w-[500px] h-[260px] sm:h-[350px] md:h-[450px] rounded-lg flex items-center justify-center ">
@@ -68,14 +68,14 @@ export default function Support() {
                 />
               </div>
 
-              <div className="relative w-[170px] h-[360px] sm:w-[180px] sm:h-[360px] md:w-[180px] md:h-[380px] overflow-hidden rounded-[40px]">
+              <div className="relative w-[170px] h-[360px] sm:w-[180px] sm:h-[360px] md:w-[180px] md:h-[380px] rounded-[40px] overflow-hidden bg-black">
                 <video
                   src="/video/support-left-section.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-full object-cover block"
                 />
               </div>
             </div>
