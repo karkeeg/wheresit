@@ -61,8 +61,12 @@ export default function Footer() {
                     href: "#features",
                   },
                   {
-                    label: "WalkThrough",
+                    label: "Walk Through",
                     href: "#walkthrough",
+                  },
+                  {
+                    label: "Group Sharing",
+                    href: "#groupsharing",
                   },
                   {
                     label: "Support",
@@ -76,6 +80,9 @@ export default function Footer() {
                   <li key={item.label}>
                     <a
                       href={item.href}
+                      target={
+                        item.label === "Privacy Policy" ? "_blank" : undefined
+                      }
                       className="hover:text-white/80 transition-colors"
                     >
                       {item.label}
@@ -84,43 +91,42 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="text-lg sm:text-xl font-semibold mb-3">Contact</h4>
-              <ul className="space-y-2 text-sm sm:text-base">
-                {[
-                  {
-                    icon: "/icons/mail.svg",
-                    label: "WhereSit.app@gmail.com",
-                    href: "mailto:WhereSit.app@gmail.com",
-                  },
-                  { icon: "/icons/x.svg", label: "X / Twitter", href: "#" },
-                  { icon: "/icons/linkedin.svg", label: "LinkedIn", href: "#" },
-                  {
-                    icon: "/icons/tiktok-icon.svg",
-                    label: "TikTok",
-                    href: "#",
-                  },
-                ].map((contact, index) => (
-                  <li key={index} className="flex gap-2">
-                    <a
-                      href={contact.href}
-                      className="hover:text-white/80 flex items-center gap-2  transition-colors"
-                    >
-                      <Image
-                        src={contact.icon}
-                        alt={contact.label}
-                        width={20}
-                        height={20}
-                        className="h-2.6 w-2.6"
-                      />
-                      {contact.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          </div>
+          {/* Contact */}
+          <div>
+            <h4 className="text-lg sm:text-xl font-semibold mb-3">Contact</h4>
+            <ul className="space-y-2 text-sm sm:text-base">
+              {[
+                {
+                  icon: "/icons/mail.svg",
+                  label: "WhereSit.app@gmail.com",
+                  href: "mailto:WhereSit.app@gmail.com",
+                },
+                { icon: "/icons/x.svg", label: "X / Twitter", href: "#" },
+                { icon: "/icons/linkedin.svg", label: "LinkedIn", href: "#" },
+                {
+                  icon: "/icons/tiktok-icon.svg",
+                  label: "TikTok",
+                  href: "#",
+                },
+              ].map((contact, index) => (
+                <li key={index} className="flex gap-2">
+                  <a
+                    href={contact.href}
+                    className="hover:text-white/80 flex items-center gap-2  transition-colors"
+                  >
+                    <Image
+                      src={contact.icon}
+                      alt={contact.label}
+                      width={20}
+                      height={20}
+                      className="h-2.6 w-2.6"
+                    />
+                    {contact.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
