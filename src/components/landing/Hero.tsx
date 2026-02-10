@@ -41,13 +41,13 @@ export default function Hero() {
               </Button>
             </Link>
 
-            <Button
+            {/* <Button
               variant="outline"
               className="border-primary text-primary bg-white w-full sm:w-auto h-12 3xl:h-16 px-6 3xl:px-10 rounded-xl 3xl:rounded-2xl flex items-center gap-2 3xl:gap-3 text-base 3xl:text-lg font-semibold hover:bg-primary/5 transition"
             >
               <Play size={16} />
               Watch Demo
-            </Button>
+            </Button> */}
           </div>
         </div>
 
