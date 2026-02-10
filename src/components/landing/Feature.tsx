@@ -166,9 +166,9 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="lg:min-h-screen flex py-16 md:py-16 bg-white overflow-hidden"
+      className="lg:min-h-screen max-w-7xl mx-auto flex py-16 md:py-16 bg-white overflow-hidden"
     >
-      <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 mb-12 w-full">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mb-12 w-full">
         {/* Section Header */}
         <div className="text-center mb-2 lg:mb-4">
           <p className="text-xl font-semibold text-primary mb-3 tracking-wide">

@@ -15,7 +15,7 @@ import {
 
 export default function WalkthroughSection() {
   return (
-    <section id="walkthrough" className="py-12 px-4 md:px-8 bg-[#E9F2FF]">
+    <section id="walkthrough" className="py-12 px-4 mx-w-7xl mx-auto md:px-8 bg-[#E9F2FF]">
       <div className="text-center mb-16">
         <p className="text-primary text-xl font-medium mb-4">Walkthrough</p>
         <h2 className="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-2 leading-tight">

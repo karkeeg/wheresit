@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <section id="getstarted">
       <footer className="bg-[#1566E6] text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-center md:gap-30 justify-center  sm:gap-10  gap-12 items-center">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:gap-30 justify-center  sm:gap-10  gap-12 items-center">
           {/* Card Section */}
           <div className="bg-white rounded-2xl py-4 px-6 flex flex-col justify-center items-center gap-4 max-w-xs text-center">
             <a
