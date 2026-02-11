@@ -20,10 +20,10 @@ export default function Hero() {
           <div className="space-y-5">
             <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl 3xl:text-7xl font-extrabold leading-[1.15] 3xl:leading-[1.1] tracking-tight">
               <span className="text-primary">WhereSit</span>{" "}
-              <span className="text-[#555] font-semibold">Know</span>
+              <span className="text-[#555] font-semibold">Knows</span>
               <br className="hidden lg:block" />
               <span className="text-[#333]">where</span>{" "}
-              <span className="text-primary">it is</span>
+              <span className="text-primary">it is.</span>
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg 3xl:text-xltext-[#555] leading-relaxed 3xl:leading-loose max-w-md 3xl:max-w-lg mx-auto lg:mx-0">
