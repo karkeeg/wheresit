@@ -17,11 +17,14 @@ WhereSit is a Next.js app built with modern tooling and reusable UI components t
 - Next.js 14.2.22 (App Router)
 - React 18.3.1
 - TypeScript
+- Nodemailer
 
 ### **Styling & Components**
 
 - TailwindCSS
 - shadcn/ui components
+- Lucide React
+- React Icons
 
 ### **Bundling & Tooling**
 
@@ -41,12 +44,15 @@ WhereSit
 ├── public/             # Static assets (images, video, icons)
 ├── src/
 │   ├── app/            # Next.js App Router Pages
+│   │   ├── api/        # API Routes
+│   │   │   └── mail/   # Email sending logic
 │   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   └── page.tsx    # Homepage
 │   ├── components/
 │   │   ├── landing/    # Landing page section components
 │   │   │   ├── Feature.tsx
+│   │   │   ├── GroupSharing.tsx
 │   │   │   ├── Hero.tsx
 │   │   │   ├── Landing.tsx
 │   │   │   ├── Support.tsx
@@ -54,7 +60,7 @@ WhereSit
 │   │   ├── layout/     # Layout components
 │   │   │   ├── Footer.tsx
 │   │   │   └── Header.tsx
-│   │   └── ui/         # Reusable UI components (e.g., button, input)
+│   │   └── ui/         # Reusable UI components (Button, Input, Card)
 │   ├── lib/            # Utilities/helpers/functions
 ├── components.json     # shadcn config
 ├── next.config.ts      # Next.js settings
@@ -71,6 +77,12 @@ WhereSit
 
 This contains the App Router entry and global styles.
 
+### **src/app/api/**
+
+Contains API route handlers.
+
+- `/api/mail`: Handles email sending for early access requests using Nodemailer.
+
 - `page.tsx` ⇒ main homepage.
 - `layout.tsx` ⇒ shared layout for the entire app.
 - `globals.css` ⇒ Tailwind & global styles.
@@ -81,6 +93,7 @@ All sections of the landing page are separate components for readability and reu
 
 - Hero
 - Feature
+- GroupSharing
 - Support
 - Walkthrough
 - Landing
