@@ -28,7 +28,7 @@ export default function WalkthroughSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Image Side */}
           <div className="relative order-1 lg:order-1 mx-4 md:mx-6">
-            <div className="rounded-[30px] overflow-hidden bg-white shadow-xl aspect-[4/3] relative">
+            <div className="rounded-[30px] overflow-hidden bg-white shadow-xl aspect-[3/3] relative">
               <Image
                 src="/walkthrough1.svg"
                 alt="Speak your Thoughts"
@@ -166,7 +166,7 @@ export default function WalkthroughSection() {
 
           {/* Image Side */}
           <div className="relative order-1 lg:order-2 mx-4 md:mx-6">
-            <div className="rounded-[30px] overflow-hidden bg-white shadow-xl aspect-[4/3] relative">
+            <div className="rounded-[30px] overflow-hidden  bg-white shadow-xl aspect-[3/3] relative">
               <Image
                 src="/walkthrough2.svg"
                 alt="Let WhereSit Organize"
@@ -191,7 +191,7 @@ export default function WalkthroughSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Image Side */}
           <div className="relative order-1 lg:order-1 mx-4 md:mx-6">
-            <div className="rounded-[30px] overflow-hidden bg-white shadow-xl aspect-[4/3] relative">
+            <div className="rounded-[30px] overflow-hidden bg-white shadow-xl aspect-[3/3] relative">
               <Image
                 src="/walkthrough3.svg"
                 alt="Get Reminder"

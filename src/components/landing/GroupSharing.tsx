@@ -89,9 +89,9 @@ export default function GroupSharing() {
                   <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={600}
-                    height={800}
-                    className="w-full h-full object-contain"
+                    width={300}
+                    height={400}
+                    className="h-full w-full lg:w-[300px] object-contain"
                   />
                 </div>
               ))}
